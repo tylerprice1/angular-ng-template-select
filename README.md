@@ -2,6 +2,17 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
 
+## Reproduction steps
+
+1. Install dependencies (`npm ci`)
+2. Start the local server (`npm start`)
+   - The app initially loads with a `<select>` dropdown and text describing the current selection with its type.
+3. **BUG**: Notice that the current selection is `"one"` but the select is not reflecting that. The select's ngModel seems to be using the option text (`one (string)`) instead of the provided `ngValue`.
+4. Open the dropdown and click `1 (number)`.
+5. **BUG**: The selection is set to the option text of `"1 (number)"` instead of the provided `ngValue` of `1`.
+6. Open the dropdown and click `undefined (undefined)`
+7. **BUG**: The selection is set to the option text of `"undefined (undefined)"` instead of the provided `ngValue` of `undefined`.
+
 ## Development server
 
 To start a local development server, run:
