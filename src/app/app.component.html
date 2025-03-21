@@ -1,0 +1,16 @@
+<ng-template #selectOptions>
+  <!-- This comment keeps Prettier from putting the @for on the same line as the } -->
+  @for (o of options; track $index) {
+  <option [ngValue]="o.value">{{ o.name }}</option>
+  }
+</ng-template>
+
+<select [(ngModel)]="selection">
+  <ng-container *ngTemplateOutlet="selectOptions" />
+</select>
+
+<div>selection: "{{ selection }}" (type is {{ getTypeOf(selection) }})</div>
+
+@if (message) {
+<div>{{ message }}</div>
+}
